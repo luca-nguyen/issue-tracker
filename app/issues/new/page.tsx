@@ -1,9 +1,6 @@
 "use client";
 import { Button, Callout, Text, TextField } from "@radix-ui/themes";
 // import SimpleMDE from "react-simplemde-editor";
-const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
-  ssr: false,
-});
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import "easymde/dist/easymde.min.css";
@@ -15,6 +12,11 @@ import { z } from "zod";
 import dynamic from "next/dynamic";
 import ErrorMessage from "@/app/components/ErrorMessage";
 import Spinner from "@/app/components/Spinner";
+
+// Tell nextjs not to render element in server
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
+  ssr: false,
+});
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
