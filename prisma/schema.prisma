@@ -25,6 +25,8 @@ enum Status {
   CLOSED
 }
 
+// Default Authentication schema from Nextjs
+
 model Account {
   id                 String  @id @default(cuid())
   userId             String  @map("user_id")
