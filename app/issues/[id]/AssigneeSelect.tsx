@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const AssigneeSelect = () => {
   const [users, setUsers] = useState<User[]>([]);
+  // Fetch users after initial render (hence use of useEffect hook)
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get<User[]>("/api/users");

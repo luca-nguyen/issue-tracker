@@ -39,6 +39,7 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
   const onSubmit = handleSubmit(async (data) => {
     // handleSubmit provided by React Hook Form
     // "title", "description" stored in data
+    // user interaction -> axios call (useEffect not needed here since user int occurs after render anyways)
     try {
       setSubmitting(true);
       if (issue) await axios.patch("/api/issues/" + issue.id, data);
